@@ -1,754 +1,193 @@
 #include <iostream>
+#include <Windows.h>
+
 
 using namespace std;
 
 int main() {
-	setlocale(LC_ALL, "RU");
+	SetConsoleCP(65001);
+	SetConsoleOutputCP(65001);
 
-	int mass1[5]{};
-	int num1 = 0;
+	int menu = 0;
+	char sim = '7';
+	string user = "user";
+	string colu = "Пурпурный";
+	string col = "\x1b[35m";		  //изменяемый цвет
+	string colw = "\x1b[37m"; //белый
 
-	for (int i = 0; i < 5; i++) {
-		cout << "инициализируйте число в масив" << endl;
-		cin >> mass1[i];
-	}
+	while (true) {
+		system("cls");
 
-	cout << "| Таблица: 1"<< endl;
-	for (int y = 0; y < 11; y++) {
-		for (int x = 0; x < 46; x++) {
-			if (y % 2 == 0) {
-				cout << "-";
+		cout << "[=] | Крестики ноликки" << endl << endl << "[1] | Начать игру" << endl << "[2] | Статистика" << endl << "[3] | Настройки" << endl << "[4] | Выйти" << endl << endl << "[>] | Ввод: ";
+		cin >> menu;
+
+		switch (menu) {
+			//Игра
+		case 1: {
+
+			break;
+		}
+			  //Статистика
+		case 2: {
+			for (int y = 0; y < 11; y++) {
+				for (int x = 0; x < 46; x++) {
+
+
+
+				}
+				
 			}
-			else if (x == 2 && y == 1) {
-				cout << "|   Число    |      Пример     |  Результат  |";
+			break;
+		}
+			  //Настройка
+		case 3: {
+			system("cls");
+
+			cout << "[=] | Настройки игрока:" << endl << endl;
+			cout << "[1] | Игрок 1" << endl;
+			cout << "[2] | Игрок 2" << endl << endl << "[>] | Ввод: ";
+			cin >> menu;
+
+			switch (menu) {
+				//Игрок 1
+			case 1: {
+				system("cls");
+				cout << "[=] | Настройки игрока:" << endl << endl;
+				cout << "[1] | Ник		: " << user << endl;
+				cout << "[2] | Фигура		: " << sim << endl;
+				cout << "[3] | Цвет 		: " << col << colu << colw << endl << endl;
+				cout << "[>] | Ввод: ";
+				cin >> menu;
+
+				switch (menu) {
+					//Ник
+				case 1: {
+					system("cls");
+
+					cout << "[=] | Ник" << endl << endl;
+					cout << "[+] | Текущий ник: " << user << endl << endl;
+					cout << "[>] | Ввод:";
+					cin >> user;
+					break;
+				}
+					  //Символ
+				case 2: {
+					system("cls");
+
+					cout << "[=] | Символ" << endl << endl;
+					cout << "[+] | Текущий символ: " << sim << endl << endl;
+					cout << "[>] | Ввод:";
+					cin >> sim;
+					break;
+				}
+					  //Цвет
+				case 3: {
+					system("cls");
+
+					cout << "[=] | Цвет" << endl << endl;
+					cout << "[+] | Текущий цвет " << col << colu << colw << endl;
+					cout << "[+] | Доступные цвета: " << endl;
+					cout << "[1] | \x1b[31mКрасный\x1b[37m" << endl;
+					cout << "[2] | \x1b[32mЗеленый\x1b[37m" << endl;
+					cout << "[3] | \x1b[33mЖелтый\x1b[37m" << endl;
+					cout << "[4] | \x1b[34mСиний\x1b[37m" << endl;
+					cout << "[5] | \x1b[35mПурпурный\x1b[37m" << endl;
+					cout << "[6] | \x1b[36mГолубой\x1b[37m" << endl;
+					cout << "[7] | \x1b[37mБелый\x1b[37m" << endl << endl;
+
+					cout << "[>] | Ввод:";
+					cin >> menu;
+
+					switch (menu) {
+					case 1: {
+						col = "\x1b[31m";
+						colu = "Красный";
+						system("cls");
+
+						cout << "Успешно изменено" << endl;
+						break;
+					}
+					case 2: {
+						col = "\x1b[32m";
+						colu = "Зеленый";
+						system("cls");
+
+						cout << "Успешно изменено" << endl;
+						break;
+					}
+					case 3: {
+						col = "\x1b[33m";
+						colu = "Желтый";
+						system("cls");
+
+						cout << "Успешно изменено" << endl;
+						break;
+					}
+					case 4: {
+						col = "\x1b[34m";
+						colu = "Синий";
+						system("cls");
+
+						cout << "Успешно изменено" << endl;
+						break;
+					}
+					case 5: {
+						col = "\x1b[35m";
+						colu = "Пурпурный";
+						system("cls");
+
+						cout << "Успешно изменено" << endl;
+						break;
+					}
+					case 6: {
+						col = "\x1b[36m";
+						colu = "Голубой";
+						system("cls");
+
+						cout << "Успешно изменено" << endl;
+						break;
+					}
+					case 7: {
+						col = "\x1b[37m";
+						colu = "Белый";
+						system("cls");
+
+						cout << "Успешно изменено" << endl;
+						break;
+					}
+					}
+					break;
+				}
+					  break;
+				}
+				break;
 			}
-			// знак +
-			else if (x == 0 && y == 3) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
+				  //Игрок 2
+			case 2: {
 
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " + " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] + mass1[num1] < 10) {
-					cout << "|       " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] + mass1[num1] << "     |";
-				}
-
+				break;
 			}
-			// знак -
-			else if (x == 0 && y == 5) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " - " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] - mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-
 			}
-			// знак /
-			else if (x == 0 && y == 7) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " / " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] / mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-
-			}
-			// знак *
-			else if (x == 0 && y == 9) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " * " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] * mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "      |";
-				}
-				else if (mass1[num1] * mass1[num1] > 9 && mass1[num1] * mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "     |";
-				}
-				else if (mass1[num1] * mass1[num1] > 99 && mass1[num1] * mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] * mass1[num1] << "     |";
-				}
-
-			}
+			break;
 
 		}
-		cout << endl;
-	}
-	num1++;
-
-	cout << "| Таблица: 2" << endl;
-	for (int y = 0; y < 11; y++) {
-		for (int x = 0; x < 46; x++) {
-			if (y % 2 == 0) {
-				cout << "-";
-			}
-			else if (x == 2 && y == 1) {
-				cout << "|   Число    |      Пример     |  Результат  |";
-			}
-			// знак +
-			else if (x == 0 && y == 3) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " + " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] + mass1[num1] < 10) {
-					cout << "|       " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] + mass1[num1] << "     |";
-				}
-
-			}
-			// знак -
-			else if (x == 0 && y == 5) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " - " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] - mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-
-			}
-			// знак /
-			else if (x == 0 && y == 7) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " / " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] / mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-
-			}
-			// знак *
-			else if (x == 0 && y == 9) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " * " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] * mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "      |";
-				}
-				else if (mass1[num1] * mass1[num1] > 9 && mass1[num1] * mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "     |";
-				}
-				else if (mass1[num1] * mass1[num1] > 99 && mass1[num1] * mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] * mass1[num1] << "     |";
-				}
-
-			}
-
+		case 4: {
+			return 0;
 		}
-		cout << endl;
-	}
-	num1++;
-
-	cout << "| Таблица: 3" << endl;
-	for (int y = 0; y < 11; y++) {
-		for (int x = 0; x < 46; x++) {
-			if (y % 2 == 0) {
-				cout << "-";
-			}
-			else if (x == 2 && y == 1) {
-				cout << "|   Число    |      Пример     |  Результат  |";
-			}
-			// знак +
-			else if (x == 0 && y == 3) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " + " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] + mass1[num1] < 10) {
-					cout << "|       " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] + mass1[num1] << "     |";
-				}
-
-			}
-			// знак -
-			else if (x == 0 && y == 5) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " - " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] - mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-
-			}
-			// знак /
-			else if (x == 0 && y == 7) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " / " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] / mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-
-			}
-			// знак *
-			else if (x == 0 && y == 9) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " * " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] * mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "      |";
-				}
-				else if (mass1[num1] * mass1[num1] > 9 && mass1[num1] * mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "     |";
-				}
-				else if (mass1[num1] * mass1[num1] > 99 && mass1[num1] * mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] * mass1[num1] << "     |";
-				}
-
-			}
-
 		}
-		cout << endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+		system("pause");
 	}
-	num1++;
-
-	cout << "| Таблица: 4" << endl;
-	for (int y = 0; y < 11; y++) {
-		for (int x = 0; x < 46; x++) {
-			if (y % 2 == 0) {
-				cout << "-";
-			}
-			else if (x == 2 && y == 1) {
-				cout << "|   Число    |      Пример     |  Результат  |";
-			}
-			// знак +
-			else if (x == 0 && y == 3) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " + " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] + mass1[num1] < 10) {
-					cout << "|       " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] + mass1[num1] << "     |";
-				}
-
-			}
-			// знак -
-			else if (x == 0 && y == 5) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " - " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] - mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-
-			}
-			// знак /
-			else if (x == 0 && y == 7) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " / " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] / mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-
-			}
-			// знак *
-			else if (x == 0 && y == 9) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " * " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] * mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "      |";
-				}
-				else if (mass1[num1] * mass1[num1] > 9 && mass1[num1] * mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "     |";
-				}
-				else if (mass1[num1] * mass1[num1] > 99 && mass1[num1] * mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] * mass1[num1] << "     |";
-				}
-
-			}
-
-		}
-		cout << endl;
-	}
-	num1++;
-
-	cout << "| Таблица: 5" << endl;
-	for (int y = 0; y < 11; y++) {
-		for (int x = 0; x < 46; x++) {
-			if (y % 2 == 0) {
-				cout << "-";
-			}
-			else if (x == 2 && y == 1) {
-				cout << "|   Число    |      Пример     |  Результат  |";
-			}
-			// знак +
-			else if (x == 0 && y == 3) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " + " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " + " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] + mass1[num1] < 10) {
-					cout << "|       " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] + mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] + mass1[num1] << "     |";
-				}
-
-			}
-			// знак -
-			else if (x == 0 && y == 5) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " - " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " - " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] - mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] - mass1[num1] << "     |";
-				}
-
-			}
-			// знак /
-			else if (x == 0 && y == 7) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " / " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " / " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] / mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "      |";
-				}
-				else if (mass1[num1] + mass1[num1] > 9 && mass1[num1] + mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-				else if (mass1[num1] + mass1[num1] > 99 && mass1[num1] + mass1[num1] < 1000) {
-					cout << "|      " << mass1[num1] / mass1[num1] << "     |";
-				}
-
-			}
-			// знак *
-			else if (x == 0 && y == 9) {
-				if (mass1[num1] < 10) {
-					cout << "|     " << mass1[num1] << "      |";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "|     " << mass1[num1] << "     |";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "|    " << mass1[num1] << "     |";
-				}
-
-				if (mass1[num1] < 10) {
-					cout << "       " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 9 && mass1[num1] < 100) {
-					cout << "     " << mass1[num1] << " * " << mass1[num1] << "     ";
-				}
-				else if (mass1[num1] > 99 && mass1[num1] < 1000) {
-					cout << "    " << mass1[num1] << " * " << mass1[num1] << "    ";
-				}
-
-				if (mass1[num1] * mass1[num1] < 10) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "      |";
-				}
-				else if (mass1[num1] * mass1[num1] > 9 && mass1[num1] * mass1[num1] < 100) {
-					cout << "|      " << mass1[num1] * mass1[num1] << "     |";
-				}
-				else if (mass1[num1] * mass1[num1] > 99 && mass1[num1] * mass1[num1] < 1000) {
-					cout << "|     " << mass1[num1] * mass1[num1] << "     |";
-				}
-
-			}
-
-		}
-		cout << endl;
-	}
-	num1++;
-
-	
-	return 0;
-
 }
